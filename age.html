@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div>
+        <input type="number" class="date" id="d" placeholder="date">
+        <input type="number" class="month" id="m" placeholder="month">
+        <input type="number" class="year" id="y" placeholder="year">
+    
+        <button style="width: 150px;" class="btn btn-success" onclick="findage()">click_here</button> 
+    </div>
+    
+    <div class="age" id="age"></div>
+
+
+    <script>
+        function findage() {
+            var userdate = document.getElementById('d').value;
+            var usermonth = document.getElementById('m').value;
+            var useryear = document.getElementById('y').value;
+
+            var date=new Date();
+            var currdate=date.getDate();
+            var currmonth=date.getMonth();
+            var curryear=date.getFullYear();
+
+            if(useryear<curryear && usermonth<=currmonth && userdate<=currdate){
+                y=curryear-useryear;
+            }
+            else if(useryear<curryear && usermonth>currmonth && userdate<=currdate){
+                y=(curryear-useryear)-1;
+            }
+            else if(useryear<curryear && usermonth>currmonth && userdate>currdate){
+                y=(curryear-useryear)-1;
+            }
+            else{
+                alert("you are alien")
+            }
+
+            document.getElementById('age').innerHTML= "you are"+" "  +y+" " + "years old"
+
+        }
+
+    </script>
+</body>
+
+</html>
